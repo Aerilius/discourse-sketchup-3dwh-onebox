@@ -19,6 +19,8 @@ module Onebox
       end
 
       BASE_URL = "https://3dwarehouse.sketchup.com"
+      # Matches details page (model.html?id=) and embed codes (embed.html?mid=)
+      # for old 32 digit hexadecimal id and new uuid.
       REGEX = /^(?:https?:\/\/)3dwarehouse.sketchup\.com\/(?:model\.html\?id=|embed\.html\?mid=)([a-fA-F0-9]{32}|[uU][a-fA-F0-9\-]{36})\S*$/
 
       # Register the regular expression for testing if the onebox handles a certain link:
