@@ -1,4 +1,24 @@
 discourse-sketchup-3dwh-onebox
-==============================
+=====================
 
-Discourse plugin for embedding SketchUp 3D Warehouse models in a onebox
+It replaces links to 3D Warehouse models by a static preview image. 
+When clicked, the image is replaced by the embed iframe showing the model in the webgl viewer.
+
+## Installation
+
+```bash
+rake plugin:install repo=https://github.com/Aerilius/discourse-sketchup-3dwh-onebox.git name=sketchup_3dwh_onebox
+rake assets:precompile
+rake posts:rebake # this will take a long time.
+# now restart your services
+```
+
+## Deinstallation
+
+```bash
+rm -r plugins/sketchup_3dwh_onebox/
+rake assets:precompile
+rake posts:rebake
+# now restart your services
+```
+
