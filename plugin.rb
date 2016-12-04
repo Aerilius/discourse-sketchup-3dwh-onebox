@@ -1,6 +1,6 @@
 # name: sketchup_3dwh_onebox
 # about: Discourse plugin for embedding SketchUp 3D Warehouse models in a onebox
-# version: 0.1
+# version: 0.2
 # authors: Andreas Eisenbarth
 
 register_asset "stylesheets/sketchup_3dwh_onebox.css"
@@ -21,7 +21,7 @@ module Onebox
       BASE_URL = "https://3dwarehouse.sketchup.com"
       # Matches details page (model.html?id=) and embed codes (embed.html?mid=)
       # for old 32 digit hexadecimal id and new uuid.
-      REGEX = /^(?:https?:\/\/)3dwarehouse\.sketchup\.com\/(?:model\.html\?id=|embed\.html\?mid=)([a-fA-F0-9]{32}|[uU][a-fA-F0-9\-]{36})\S*$/
+      REGEX = /^(?:https?:\/\/)3dwarehouse\.sketchup\.com\/(?:model\.html\?id=|embed\.html\?mid=)([a-fA-F0-9]{32}|[uU]?[a-fA-F0-9\-]{36})\S*$/
 
       THUMB_PRIORITY_ORDER = %w(bot_lt lt bot_st st)
 
