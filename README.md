@@ -6,6 +6,10 @@ When clicked, the image is replaced by the embed iframe showing the model in the
 
 ## Installation
 
+1. Install [discourse](https://github.com/discourse/discourse/blob/master/docs/DEVELOPER-ADVANCED.md).
+
+2. Execute in the `discourse` root directory:
+
 ```bash
 rake plugin:install repo=https://github.com/Aerilius/discourse-sketchup-3dwh-onebox.git name=sketchup_3dwh_onebox
 rake assets:precompile
