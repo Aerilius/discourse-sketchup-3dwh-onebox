@@ -1,6 +1,6 @@
 .onebox-3dwh {
-  width: 400px;
-  height: 300px;
+  width: 580px;
+  height: 326px;
   position: relative; /* so that we can use 'absolute' inside */
   border: 1px solid #E9E9E9; /* to make it visible while it is loading */
 }

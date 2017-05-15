@@ -40,8 +40,8 @@ module Onebox
       matches_regexp REGEX
 
       def placeholder_html
-        w = 400
-        h = 300
+        w = 580
+        h = 326
         id = @url.match(REGEX)[1]
         request_url = "#{BASE_URL}/3dw/GetEntity?id=#{id}"
 
@@ -68,8 +68,8 @@ HTML
       # Since 3D Warehouse does not give links to images, we use an iframe for
       # both static image and 3d view.
       def to_html
-        w = 400
-        h = 300
+        w = 580
+        h = 326
         id = @url.match(REGEX)[1]
         embed_image = "#{BASE_URL}/embed.html?mid=#{id}&width=#{w}&height=#{h}&etp=im"
         embed_3d = "#{BASE_URL}/embed.html?mid=#{id}&width=#{w}&height=#{h}"
