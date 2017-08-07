@@ -71,12 +71,10 @@ HTML
         w = 580
         h = 326
         id = @url.match(REGEX)[1]
-        embed_image = "#{BASE_URL}/embed.html?mid=#{id}&width=#{w}&height=#{h}&etp=im"
         embed_3d = "#{BASE_URL}/embed.html?mid=#{id}&width=#{w}&height=#{h}"
         <<HTML
-<div class="onebox-3dwh" id="#{id}">
-  <iframe src="#{embed_image}" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="#{w}" height="#{h}" allowfullscreen></iframe>
-  <div class="onebox-3dwh-circle" onclick="$('##{id} iframe').attr('src', '#{embed_3d}'); $(this).remove()" />
+<div class="onebox-3dwh">
+  <iframe src="#{embed_3d}" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="#{w}" height="#{h}" allowfullscreen></iframe>
 </div>
 HTML
       end
