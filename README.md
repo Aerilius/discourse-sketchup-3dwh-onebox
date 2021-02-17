@@ -17,6 +17,8 @@ rake posts:rebake # this will take a long time.
 # now restart your services
 ```
 
+3. Add `https://3dwarehouse.sketchup.com` to your Discourse allowed iframes site setting.
+
 ## Deinstallation
 
 ```bash
@@ -25,4 +27,3 @@ rake assets:precompile
 rake posts:rebake
 # now restart your services
 ```
-
