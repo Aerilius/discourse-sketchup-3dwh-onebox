@@ -27,3 +27,4 @@ rake assets:precompile
 rake posts:rebake
 # now restart your services
 ```
+
