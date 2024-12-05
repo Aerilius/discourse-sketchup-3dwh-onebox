@@ -1,6 +1,6 @@
 # name: sketchup_3dwh_onebox
 # about: Discourse plugin for embedding SketchUp 3D Warehouse models in a onebox
-# version: 0.2
+# version: 0.3
 # authors: Andreas Eisenbarth
 
 register_asset "stylesheets/sketchup_3dwh_onebox.css"
@@ -20,12 +20,17 @@ module Onebox
 
       BASE_URL = "https://3dwarehouse.sketchup.com"
       # Matcher for model details url and embed url.
-      REGEX = /^(?:https?:\/\/)             # http or https
-               3dwarehouse\.sketchup\.com\/ # domain
+      REGEX = /^(?:https?:\/\/)?            # http or https
                (?:
-                 model\.html\?id=           # old model details page
-                |embed\.html\?mid=          # old embed code
-                |model\/                    # new model details path
+                 3dwarehouse\.sketchup\.com\/ # domain
+                 (?:
+                   model\.html\?id=           # old model details page
+                  |embed\.html\?mid=          # old embed code
+                  |model\/                    # new model details path
+                  |embed\/                    # new embed code
+                 )
+                 |
+                 (?:app|edu)\.sketchup\.com\/app\?3dwid=   # new share link
                )
                (
                  [a-fA-F0-9]{32}            # old (Google era) model id
@@ -64,14 +69,14 @@ HTML
       end
 
       # Called to generate a html preview.
-      # We first show a static image, and on click replace it by the webgl viewer.
+      # The embed code first shows a static image, and on click replaces it by the webgl viewer.
       # Since 3D Warehouse does not give links to images, we use an iframe for
       # both static image and 3d view.
       def to_html
         w = 580
         h = 326
         id = @url.match(REGEX)[1]
-        embed_3d = "#{BASE_URL}/embed.html?mid=#{id}&width=#{w}&height=#{h}"
+        embed_3d = "#{BASE_URL}/embed/#{id}?width=#{w}&height=#{h}"
         <<HTML
 <div class="onebox-3dwh">
   <iframe src="#{embed_3d}" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="#{w}" height="#{h}" allowfullscreen></iframe>
